@@ -12,7 +12,8 @@ class App extends React.Component {
       cityData: {},
       error: false,
       errorMessage: '',
-      weatherData: []
+      weatherData: [],
+      movieData: [],
     }
   }
 
@@ -22,6 +23,9 @@ class App extends React.Component {
     let cityInfo = await axios.get(url).catch(this.catch);
 
     let cityForecast = await axios.get(`${process.env.REACT_APP_SERVER}/weather?searchQueryCity=${this.state.city}`).catch(err => {
+      console.log(err);
+    });
+    let cityMovie = await axios.get(`${process.env.REACT_APP_SERVER}/movies?searchQueryCity=${this.state.city}`).catch(err => {
       console.log(err);
     });
 
@@ -36,7 +40,8 @@ class App extends React.Component {
       cityData: cityInfo.data[0],
       error: false,
       errorMessage: '',
-      weatherData: forecast
+      weatherData: forecast,
+      movieData: cityMovie.data
       })
 
     }; 
@@ -63,7 +68,7 @@ class App extends React.Component {
 
         console.log(this.state);
         console.log(this.state.weatherData);
-
+        console.log(this.state.movieData);
         return (
 
           <Display
@@ -73,7 +78,8 @@ class App extends React.Component {
             errorMessage={this.state.errorMessage}
             cityData={this.state.cityData}
             weatherData={this.state.weatherData}
-          />
+            movieData={this.state.movieData}
+            />
 
         );
       }
