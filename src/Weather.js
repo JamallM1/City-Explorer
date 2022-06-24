@@ -3,7 +3,7 @@ import Forecast from './Forecast';
 
 class Weather extends React.Component {
     render() {
-        
+
         console.log(this.props.weatherData);
 
         let weather = this.props.weatherData.map((day, idx) => (
