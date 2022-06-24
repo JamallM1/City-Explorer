@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create React Lab 8 App
 
 ### Number of names and features ###
 -  create city explorer app
@@ -29,4 +29,4 @@
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-- Ricky, stephen, Marco
+- Ricky, stephen, Marco, Dom

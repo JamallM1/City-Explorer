@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Display from './Display';
 import Weather from './Weather';
+import Movies from './movies';
 
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
       error: false,
       errorMessage: '',
       weatherData: [],
-      movieData: [],
+      movieData: []
     }
   }
 
@@ -70,7 +71,7 @@ class App extends React.Component {
         console.log(this.state.weatherData);
         console.log(this.state.movieData);
         return (
-
+          <>
           <Display
             handleCityInput={this.handleCityInput}
             handleCitySubmit={this.handleCitySubmit}
@@ -80,6 +81,9 @@ class App extends React.Component {
             weatherData={this.state.weatherData}
             movieData={this.state.movieData}
             />
+            <Movies
+            movie={this.state.movieData}/>
+          </>
 
         );
       }
